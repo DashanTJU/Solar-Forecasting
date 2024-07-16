@@ -88,7 +88,7 @@ dpp_auto_model.add(L.Dense(1))
 dpp_auto_model.summary()
 
 # Compile and train the Autoencoder LSTM model
-dpp_auto_model.compile(loss='mse', optimizer=Adam(learning_rate=0.001), metrics=['mse', 'mae'])
+dpp_auto_model.compile(loss='mse', optimizer=Adam(learning_rate=0.01), metrics=['mse', 'mae'])
 dpp_csv_logger = CSVLogger('Autolstm_dpp.csv', separator=',', append=False)
 dpp_history = dpp_auto_model.fit(dpp_X_train, dpp_Y_train, validation_data=(dpp_X_valid, dpp_Y_valid), epochs=100, batch_size=32, verbose=1, shuffle=True, callbacks=[dpp_csv_logger])
 print(dpp_auto_model.summary())
@@ -111,7 +111,7 @@ dpp_model_cnn_Autolstm.add(Dense(1))
 dpp_model_cnn_Autolstm.summary()
 
 # Compile and train the CNN- Autoencoder LSTM model
-dpp_model_cnn_Autolstm.compile(loss='mse', optimizer=Adam(learning_rate=0.001), metrics=['mse', 'mae'])
+dpp_model_cnn_Autolstm.compile(loss='mse', optimizer=Adam(learning_rate=0.01), metrics=['mse', 'mae'])
 dpp_csv_logger = CSVLogger('cnnAutolstm_dpp.csv', separator=',', append=False)
 dpp_history = dpp_model_cnn_Autolstm.fit(dpp_X_train_series_sub, dpp_Y_train, validation_data=(dpp_X_valid_series_sub, dpp_Y_valid), epochs=100, batch_size=32, verbose=2, shuffle=True, callbacks=[dpp_csv_logger])
 print(dpp_model_cnn_Autolstm.summary())
